@@ -21,8 +21,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.devdiego.dscatalog.dto.CategoryDTO;
 import com.devdiego.dscatalog.services.CategoryService;
 
-
-
 @RestController
 @RequestMapping (value = "/categories")
 public class CategoryResource {

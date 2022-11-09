@@ -20,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.devdiego.dscatalog.dto.UserDTO;
 import com.devdiego.dscatalog.dto.UserInsertDTO;
+import com.devdiego.dscatalog.dto.UserUpdateDTO;
 import com.devdiego.dscatalog.services.UserService;
 
 
@@ -53,16 +54,14 @@ public class UserResource {
 		}
 		
 		@PutMapping (value = "/{id}")
-		public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserDTO dto){
-			dto = service.update(id, dto);
-			
-			return ResponseEntity.ok().body(dto);
+		public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserUpdateDTO dto){
+			UserDTO newDTO= service.update(id, dto);
+			return ResponseEntity.ok().body(newDTO);
 		}
 		
 		@DeleteMapping (value = "/{id}")
 		public ResponseEntity<Void> delete(@PathVariable Long id){
 			service.delete(id);
-			
 			return ResponseEntity.noContent().build();
 		}
 	}

@@ -8,4 +8,6 @@ import com.devdiego.dscatalog.entities.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	//para buscar no bd um usuario com email como argumento
+	User findByEmail(String email);
 }

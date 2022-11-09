@@ -9,6 +9,7 @@ import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 import com.devdiego.dscatalog.entities.Category;
 import com.devdiego.dscatalog.entities.Product;
@@ -17,6 +18,9 @@ public class ProductDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	
+	@Size (min = 5, max = 20, message = "Deve ter entre 5 a 20 caracteres")
+	@NotBlank(message = "Campo Obrigatório")
 	private String name;
 	private String description;
 	
